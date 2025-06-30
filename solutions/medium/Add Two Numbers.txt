@@ -1,0 +1,40 @@
+// Title: Add Two Numbers
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/add-two-numbers/
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional
+[ListNode]) -> Optional[ListNode]:
+        # Approach: Addition
+        # Time: O(max(m, n))
+        # Space: O(1)
+        res, carry = 0, 0
+        head, prev = None, None
+        while l1 or l2:
+            res = carry
+            if l1:
+                res += l1.val
+                l1 = l1.next
+            if l2:
+                res += l2.val
+                l2 = l2.next
+            if res >= 10:
+                res -= 10
+                carry = 1
+            else:
+                carry = 0
+            node = ListNode(val=res)
+            if not head:
+                head = node
+            else:
+                prev.next = node
+            prev = node
+        if carry:
+            node = ListNode(val=carry)
+            prev.next = node
