@@ -1,0 +1,21 @@
+// Title: 3Sum
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/3sum/
+
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        nums.sort()
+        res = set()
+        for i, num in enumerate(nums):
+            target = 0 - num
+            numsMap = {}
+            for j in range(i+1, len(nums)):
+                if target - nums[j] in numsMap:
+                    res.add((num, target-nums[j], nums[j]))
+                else:
+                    numsMap[nums[j]] = j
+        # Approach: Hash table
+        # Time: O(n**2)
+        # Space: O(n)
+        return [list(x) for x in res]
