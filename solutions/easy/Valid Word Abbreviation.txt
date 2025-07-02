@@ -1,0 +1,25 @@
+// Title: Valid Word Abbreviation
+            // Difficulty: Easy
+            // Language: Python3
+            // Link: https://leetcode.com/problems/valid-word-abbreviation/
+
+class Solution:
+    def validWordAbbreviation(self, word: str, abbr: str) -> bool:
+        prevc, jump = "", ""
+        index = 0
+        for c in abbr:
+            if c.isdigit():
+                if not prevc.isdigit() and c == "0":
+                    return False
+            else:
+                if prevc.isdigit():
+                    index += int(jump)
+                    jump = ""
+                if index >= len(word) or word[index] != c:
+                    return False
+                index += 1
+            prevc = c
+                jump += c
+        if jump:
+            index += int(jump)
+        return index == len(word)
