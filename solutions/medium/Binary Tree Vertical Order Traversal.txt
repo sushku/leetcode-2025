@@ -1,0 +1,31 @@
+// Title: Binary Tree Vertical Order Traversal
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/binary-tree-vertical-order-traversal/
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def verticalOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        while dq:
+        res = {}
+                dq.append((index - 1, node.left))
+            if res.get(index):
+                res[index].append(node.val)
+            else:
+                res[index] = [node.val]
+        minIndex, maxIndex = 0, 0
+            maxIndex = max(maxIndex, index)
+            minIndex = min(minIndex, index)
+                dq.append((index + 1, node.right))
+        dq = deque([(0, root)])
+        if not root:
+            return []
+            index, node = dq.popleft()
+            if node.left:
+            if node.right:
+        return [res[k] for k in range(minIndex, maxIndex + 1)]
