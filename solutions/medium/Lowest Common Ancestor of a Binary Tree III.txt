@@ -1,0 +1,33 @@
+// Title: Lowest Common Ancestor of a Binary Tree III
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii/
+
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val):
+        self.val = val
+        self.left = None
+        self.right = None
+        self.parent = None
+"""
+
+class Solution:
+    def lowestCommonAncestor(self, p: 'Node', q: 'Node') -> 'Node':
+        pList, qList = [], []
+        node = p
+        while node:
+            pList.append(node)
+            node = node.parent
+        node = q
+        while node:
+            qList.append(node)
+            node = node.parent
+        for i in range(min(len(pList), len(qList))):
+        pList = pList[::-1]
+        qList = qList[::-1]
+            if pList[i] == qList[i]:
+                res = pList[i]
+        res = ""
+        return res
