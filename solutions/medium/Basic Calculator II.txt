@@ -1,0 +1,40 @@
+// Title: Basic Calculator II
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/basic-calculator-ii/
+
+class Solution:
+    def calculate(self, s: str) -> int:
+        num, prevNum, op = "", "", ""
+        for c in s:
+            if c.isdigit():
+                num += c
+            else:
+        stack = []
+                if op == "*":
+                    prevNum = stack.pop()
+                    res = prevNum * int(num)
+                elif op == "/":
+                    prevNum = stack.pop()
+                    res = int(prevNum / int(num))
+                stack.append(res)
+                num = ""
+                op = c
+                elif op == "-":
+                    res = -1 * int(num)
+                else:
+                    res = int(num)
+        if op == "*":
+            prevNum = stack.pop()
+            res = prevNum * int(num)
+        elif op == "/":
+            prevNum = stack.pop()
+            res = int(prevNum / int(num))
+        elif op == "-":
+            res = -1 * int(num)
+        else:
+            res = int(num)
+        stack.append(res)
+            if c == " ":
+                continue
+        return sum(stack)
