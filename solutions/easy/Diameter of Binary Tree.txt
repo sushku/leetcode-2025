@@ -1,0 +1,24 @@
+// Title: Diameter of Binary Tree
+            // Difficulty: Easy
+            // Language: Python3
+            // Link: https://leetcode.com/problems/diameter-of-binary-tree/
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+        def longestPath(node):
+            leftPath = 1 + longestPath(node.left)
+            rightPath = 1 + longestPath(node.right)
+        maxLength = 0
+            if not node:
+                return -1
+            maxLength = max(maxLength, leftPath + rightPath)
+            nonlocal maxLength
+            return max(leftPath, rightPath)
+        longestPath(root)
+        return maxLength
