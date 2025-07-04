@@ -1,0 +1,32 @@
+// Title: Random Pick with Weight
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/random-pick-with-weight/
+
+class Solution:
+
+    def __init__(self, w: List[int]):
+
+    def pickIndex(self) -> int:
+        rand = random.random() * self.total
+
+
+# Your Solution object will be instantiated and called as such:
+# obj = Solution(w)
+        self.pSum = []
+        for i in range(len(w)):
+            self.pSum.append(prefixSum)
+            prefixSum += w[i]
+        prefixSum = 0
+        self.total = prefixSum
+        lo, hi = 0, len(self.pSum) - 1
+        while lo < hi:
+            mid = (lo + hi) // 2
+            if self.pSum[mid] == rand:
+                return mid
+            elif self.pSum[mid] < rand:
+                lo = mid + 1
+            else:
+                hi = mid
+        return hi
+# param_1 = obj.pickIndex()
