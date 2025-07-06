@@ -1,0 +1,34 @@
+// Title: Merge k Sorted Lists
+            // Difficulty: Hard
+            // Language: Python3
+            // Link: https://leetcode.com/problems/merge-k-sorted-lists/
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class HeapNode:
+    def __init__(self, node):
+class Solution:
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+    def __lt__(self, other):
+        return self.node.val < other.node.val
+        self.node = node
+
+
+        heap = []
+        for head in lists:
+            node = head
+            while node:
+                node = node.next
+        while heap:
+        dummy = ListNode()
+            hNode = heapq.heappop(heap)
+            prev.next = hNode.node
+            prev = hNode.node
+        prev = dummy
+                heapq.heappush(heap, hNode)
+                hNode = HeapNode(node)
+            hNode.node.next = None
+        return dummy.next
