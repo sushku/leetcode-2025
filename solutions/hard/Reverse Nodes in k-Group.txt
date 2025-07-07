@@ -1,0 +1,37 @@
+// Title: Reverse Nodes in k-Group
+            // Difficulty: Hard
+            // Language: Python3
+            // Link: https://leetcode.com/problems/reverse-nodes-in-k-group/
+
+    def reverseKGroup(self, head: Optional[ListNode], k: int) -> 
+Optional[ListNode]:
+        node, segmentHead = head, head
+        while node:
+            count += 1
+        count = 0
+            if count == k:
+                count = 0
+                newHead, newTail = self.reverseList(segmentHead)
+                segmentHead = node
+        while node:
+
+                prevTail.next = newHead
+                prevTail = newTail
+                newTail.next = None
+        prev, prevTail = None, dummy
+        dummy = ListNode()
+            node = node.next
+        if count == k:
+            node = next
+            next = node.next
+            node.next = prev
+            prev = node
+        return prev, head
+            newHead, newTail = self.reverseList(segmentHead)
+        else:
+                if prev:
+                    prev.next = None
+            prev = node
+            newHead = segmentHead
+        prevTail.next = newHead
+        return dummy.next
