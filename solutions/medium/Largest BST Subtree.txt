@@ -1,0 +1,40 @@
+// Title: Largest BST Subtree
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/largest-bst-subtree/
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def largestBSTSubtree(self, root: Optional[TreeNode]) -> int:
+        maxSize = 0
+        def isValidBST(node):
+            if not node.left and not node.right:
+                return (True, node.val, node.val, 1)
+                lBST, lMin, lMax, lSize = isValidBST(node.left)
+                rBST, rMin, rMax, rSize = isValidBST(node.right)
+                    maxSize = max(maxSize, lSize + rSize + 1)
+            return (False, None, None, 0)
+            nonlocal maxSize
+        if not root:
+            return 0
+            if node.left:
+            if node.left and not node.right:
+            if node.right:
+                if lBST and lMax < node.val:
+                    maxSize = max(maxSize, lSize + 1)
+                    return (True, lMin, node.val, lSize + 1)
+            if node.right and not node.left:
+                if rBST and node.val < rMin:
+                    maxSize = max(maxSize, rSize + 1)
+                    return (True, lMin, rMax, lSize + rSize + 1)
+                    return (True, node.val, rMax, rSize + 1)
+                if lBST and rBST and lMax < node.val < rMin:
+        isValidBST(root)
+            if node.left and node.right:
+                maxSize = max(maxSize, 1)
+        return maxSize
