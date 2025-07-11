@@ -1,0 +1,24 @@
+// Title: Combination Sum
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/combination-sum/
+
+class Solution:
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        cList = []
+        def backtrack(cList):
+            if sum(cList) == target:
+            for num in candidates:
+                cList.append(num)
+        backtrack([])
+                return
+                backtrack(cList)
+                cList.pop()
+        candidates.sort()
+            if sum(cList) > target:
+                return
+        res = set()
+                c = cList.copy()
+                res.add(tuple(c))
+                c.sort()
+        return list(res)
