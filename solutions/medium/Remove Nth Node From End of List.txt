@@ -9,20 +9,20 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> 
-Optional[ListNode]:
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional
+[ListNode]:
         left, right = None, head
         while right:
-            right = right.next
-            if count >= n:
-                    left = left.next
         count = 0
+                    left = left.next
+            right = right.next
                 if left:
                 else:
                     left = head
             count += 1
-        if not left:
-            return head.next
-        else:
+            if count >= n:
+        if left and left.next:
             left.next = left.next.next
+        else:
+            head = head.next
         return head
