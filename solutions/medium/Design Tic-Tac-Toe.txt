@@ -1,0 +1,33 @@
+// Title: Design Tic-Tac-Toe
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/design-tic-tac-toe/
+
+class TicTacToe:
+
+    def __init__(self, n: int):
+
+    def move(self, row: int, col: int, player: int) -> int:
+        self.grid[row][col] = player
+
+
+# Your TicTacToe object will be instantiated and called as such:
+# obj = TicTacToe(n)
+        self.grid = [[0] * n for _ in range(n)]
+        return self.isWinningMove(row, col, player)
+    def isWinningMove(self, row:int, col:int, player: int) -> int:
+            return player
+        if column == winningCombo:
+        column = [x[col] for x in self.grid]
+        if self.grid[row] == winningCombo:
+            return player
+        diag1 = [self.grid[i][i] for i in range(self.size)]
+        self.size = n
+        if diag1 == winningCombo:
+            return player
+        winningCombo = [player] * self.size
+        diag2 = [self.grid[i][self.size-i-1] for i in range(self.size)]
+        if diag2 == winningCombo:
+            return player
+        return 0
+# param_1 = obj.move(row,col,player)
