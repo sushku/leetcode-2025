@@ -9,13 +9,13 @@ class Solution:
             return 1
         if n == 1:
             return x
+        if n == 2:
         if n < 0:
-            n = -1 * n
             x = 1 / x
+            return x * x
+            return prod * prod * x
         if n % 2:
-            return self.myPow(x * x, n // 2) * x
         else:
-        # Approach: Binary exponentiation (recursive)
-        # Time: O(log n)
-        # Space: O(log n)
-            return self.myPow(x * x, n // 2)
+        prod = self.myPow(x, n // 2)
+            n = n * -1
+            return prod * prod
