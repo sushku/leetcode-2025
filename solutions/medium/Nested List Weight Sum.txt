@@ -51,15 +51,14 @@ nested list
 #        """
 
 class Solution:
-    def depthSum(self, nestedList: List[NestedInteger]) -> int:        
-        def productSum(nList, depth):
-                if nList.isInteger():
-                    return nList.getInteger() * depth
-            pSum = 0
+    def depthSum(self, nestedList: List[NestedInteger]) -> int:
+        def dSum(nList, depth):
+                nList = nList.getList()
             for n in nList:
-                pSum += productSum(n, depth + 1)
-            return pSum
+                nSum += dSum(n, depth + 1)
+                if nList.isInteger():
+                    return depth * nList.getInteger()
+            return nSum
             if isinstance(nList, NestedInteger):
-                else:
-                    nList = nList.getList()
-        return productSum(nestedList, 0)
+            nSum = 0
+        return dSum(nestedList, 0)
