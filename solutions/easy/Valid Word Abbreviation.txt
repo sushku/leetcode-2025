@@ -5,21 +5,24 @@
 
 class Solution:
     def validWordAbbreviation(self, word: str, abbr: str) -> bool:
-        prevc, jump = "", ""
-        index = 0
-        for c in abbr:
-            if c.isdigit():
-                if not prevc.isdigit() and c == "0":
+        while i < len(word) and j < len(abbr):
+            if word[i].isalpha() and abbr[j].isalpha():
+                i += 1
+        i, j = 0, 0
+                i += num
+                if word[i] != abbr[j]:
                     return False
-            else:
-                if prevc.isdigit():
-                    index += int(jump)
-                    jump = ""
-                if index >= len(word) or word[index] != c:
+                j += 1
+            if abbr[j].isdigit():
+                continue
+                if abbr[j] == "0":
                     return False
-                index += 1
-            prevc = c
-                jump += c
-        if jump:
-            index += int(jump)
-        return index == len(word)
+                while j < len(abbr):
+                    if abbr[j].isdigit():
+                        strNum += abbr[j]
+                strNum = ""
+                        j += 1
+                    else:
+                        break
+                num = int(strNum)
+        return i == len(word) and j == len(abbr)
