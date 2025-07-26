@@ -1,0 +1,26 @@
+// Title: Max Consecutive Ones III
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/max-consecutive-ones-iii/
+
+class Solution:
+    def longestOnes(self, nums: List[int], k: int) -> int:
+        dq = deque()
+        size, maxSize = 0, 0
+        for i in range(len(nums)):
+            if nums[i] == 1:
+                size += 1
+            else:
+                if len(dq) < k:
+                    dq.append(i)
+                    size +=1
+                else:
+                    maxSize = max(size, maxSize)
+                        rem = dq.popleft()
+                        size = i - rem
+                    if dq:
+                    else:
+                        size = 0
+                        dq.append(i)
+        maxSize = max(size, maxSize)
+        return maxSize
