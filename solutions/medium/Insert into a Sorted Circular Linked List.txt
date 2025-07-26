@@ -1,0 +1,36 @@
+// Title: Insert into a Sorted Circular Linked List
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/insert-into-a-sorted-circular-linked-list/
+
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val=None, next=None):
+        self.val = val
+        self.next = next
+"""
+
+class Solution:
+    def insert(self, head: 'Optional[Node]', insertVal: int) -> 'Node':
+        if not head:
+            head = Node(insertVal)
+            head.next = head
+            return head
+        node = head
+        prevNode = None
+        while True:
+            if not prevNode:
+                prevNode = node
+                node = node.next
+                continue
+            if node == head or (prevNode.val <= insertVal <= node.val) or 
+                newNode = Node(insertVal)
+                prevNode.next = newNode
+                newNode.next = node
+                break
+            prevNode = node
+            node = node.next
+(prevNode.val > node.val and (insertVal <= node.val or insertVal >= 
+prevNode.val)):
+        return head
