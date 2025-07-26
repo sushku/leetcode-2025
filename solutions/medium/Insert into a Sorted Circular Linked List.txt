@@ -25,12 +25,12 @@ class Solution:
                 node = node.next
                 continue
             if node == head or (prevNode.val <= insertVal <= node.val) or 
+(prevNode.val > node.val and (insertVal <= node.val or insertVal >= 
+prevNode.val)):
                 newNode = Node(insertVal)
                 prevNode.next = newNode
                 newNode.next = node
                 break
             prevNode = node
             node = node.next
-(prevNode.val > node.val and (insertVal <= node.val or insertVal >= 
-prevNode.val)):
         return head
