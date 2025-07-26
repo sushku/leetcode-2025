@@ -1,0 +1,22 @@
+// Title: Exclusive Time of Functions
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/exclusive-time-of-functions/
+
+class Solution:
+    def exclusiveTime(self, n: int, logs: List[str]) -> List[int]:
+        total, start = [0] * n, [0] * n
+        callStack = []
+        for log in logs:
+            log = log.split(":")
+            if log[1] == "start":
+                if callStack:
+                    total[callStack[-1]] += int(log[2]) - start[callStack[-1]]
+                callStack.append(int(log[0]))
+                start[int(log[0])] = int(log[2])
+            if log[1] == "end":
+                total[callStack[-1]] += int(log[2]) - start[callStack[-1]] + 1
+                callStack.pop()
+                    start[callStack[-1]] = int(log[2]) + 1
+                if callStack:
+        return total
