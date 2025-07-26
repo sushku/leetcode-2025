@@ -1,0 +1,51 @@
+// Title: Making A Large Island
+            // Difficulty: Hard
+            // Language: Python3
+            // Link: https://leetcode.com/problems/making-a-large-island/
+
+class Solution:
+    def largestIsland(self, grid: List[List[int]]) -> int:
+        rows, cols = len(grid), len(grid[0])
+        def exploreIsland(r, c, islandId):
+                r1, c1 = r + n[0], c + n[1]
+                if 0 <= r1 < rows and 0 <= c1 < cols and (r1, c1) not in visited 
+        for r in range(rows):
+            for c in range(cols):
+                if grid[r][c] == 1 and (r, c) not in visited:
+                    islandId += 1
+
+        visited = set()
+            for n in neighbors:
+and grid[r1][c1] == 1:
+                    sizeMap[islandId] += 1
+        islandId = 1
+                    sizeMap[islandId] = 1
+                    visited.add((r1, c1))
+                    exploreIsland(r1, c1, islandId)
+                    grid[r][c] = islandId
+                    grid[r1][c1] = islandId
+                    visited.add((r, c))
+        sizeMap = {}
+                    exploreIsland(r, c, islandId)
+
+            for c in range(cols):
+                if grid[r][c] == 0:
+        for r in range(rows):
+                    for n in neighbors:
+                        r1, c1 = r + n[0], c + n[1]
+                        if 0 <= r1 < rows and 0 <= c1 < cols and grid[r1][c1] != 0:
+        if not sizeMap:
+            return 1
+        if rows * cols in sizeMap.values():
+            return rows * cols
+
+        neighbors = [(0, 1), (1, 0), (0, -1), (-1, 0)]
+
+                    maxSize = max(size, maxSize)
+                    neighborIslands = set()
+        maxSize = 0
+                            neighborIslands.add(grid[r1][c1])
+                    for n in neighborIslands:
+                        size += sizeMap[n]
+                    size = 1
+        return maxSize
