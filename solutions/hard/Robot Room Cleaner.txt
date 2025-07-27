@@ -45,21 +45,21 @@ class Solution:
         def goBack():
             robot.turnRight()
             robot.turnRight()
-            robot.turnRight()
             robot.move()
+            robot.turnRight()
             robot.turnRight()
 
         def backtrack(cell, dir):
             visited.add(cell)
             robot.clean()
             for i in range(4):
-
-                newCell = (cell[0] + ds[newDir][0], cell[1] + ds[newDir][1])
-                    backtrack(newCell, newDir)
-        ds = [(-1, 0), (0, 1), (1, 0), (0, -1)]
-                if newCell not in visited and robot.move():
-                    goBack()
-        visited = set()
-                robot.turnRight()
                 newDir = (dir + i) % 4
+                newCell = (cell[0] + ds[newDir][0], cell[1] + ds[newDir][1])
+                if newCell not in visited and robot.move():
+                    backtrack(newCell, newDir)
+                    goBack()
+                robot.turnRight()
+
+        ds = [(-1, 0), (0, 1), (1, 0), (0, -1)]
+        visited = set()
         backtrack((0, 0), 0)
