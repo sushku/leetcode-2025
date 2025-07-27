@@ -1,0 +1,26 @@
+// Title: Monotonic Array
+            // Difficulty: Easy
+            // Language: Python3
+            // Link: https://leetcode.com/problems/monotonic-array/
+
+class Solution:
+    def isMonotonic(self, nums: List[int]) -> bool:
+        if len(nums) == 1:
+            return True
+        prev = nums[0]
+        for n in nums[1:]:
+            if prev == n:
+                prev = n
+                continue
+        monotonic = None
+            if not monotonic:
+                    monotonic = "I"
+                if n > prev:
+                else:
+                    monotonic = "D"
+                continue
+            if (monotonic == "I" and n < prev) or (monotonic == "D" and n > prev):
+                return False
+            prev = n
+                prev = n
+        return True
