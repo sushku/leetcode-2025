@@ -1,0 +1,27 @@
+// Title: Group Shifted Strings
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/group-shifted-strings/
+
+class Solution:
+    def groupStrings(self, strings: List[str]) -> List[List[str]]:
+        mapHash = {}
+        for s in strings:
+            if s[0] == 'a':
+                if mapHash.get(s):
+                    mapHash[s].append(s)
+                else:
+                    mapHash[s] = [s]
+            else:
+                shift = ord(s[0]) - ord('a')
+                for c in s:
+                newStr = ""
+                    newStr += chr(asc)
+                if mapHash.get(newStr):
+                    mapHash[newStr].append(s)
+                else:
+                    mapHash[newStr] = [s]
+                    asc = ord(c) - shift
+                    if asc < ord('a'):
+                        asc += 26
+        return list(mapHash.values())
