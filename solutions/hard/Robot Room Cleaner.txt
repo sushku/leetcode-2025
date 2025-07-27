@@ -1,0 +1,65 @@
+// Title: Robot Room Cleaner
+            // Difficulty: Hard
+            // Language: Python3
+            // Link: https://leetcode.com/problems/robot-room-cleaner/
+
+# """
+# This is the robot's control interface.
+# You should not implement it, or speculate about its implementation
+# """
+#class Robot:
+#    def move(self):
+#        """
+#        Returns true if the cell in front is open and robot moves into the cell.
+#        Returns false if the cell in front is blocked and robot stays in the 
+current cell.
+#        :rtype bool
+#        """
+#
+#    def turnLeft(self):
+#        """
+#        Robot will stay in the same cell after calling turnLeft/turnRight.
+#        Each turn will be 90 degrees.
+#        :rtype void
+#        """
+#
+#    def turnRight(self):
+#        """
+#        Robot will stay in the same cell after calling turnLeft/turnRight.
+#        Each turn will be 90 degrees.
+#        :rtype void
+#        """
+#
+#    def clean(self):
+#        """
+#        Clean the current cell.
+#        :rtype void
+#        """
+
+class Solution:
+    def cleanRoom(self, robot):
+        """
+        :type robot: Robot
+        :rtype: None
+        """
+        def goBack():
+            robot.turnRight()
+            robot.turnRight()
+            robot.turnRight()
+            robot.move()
+            robot.turnRight()
+
+        def backtrack(cell, dir):
+            visited.add(cell)
+            robot.clean()
+            for i in range(4):
+
+                newCell = (cell[0] + ds[newDir][0], cell[1] + ds[newDir][1])
+                    backtrack(newCell, newDir)
+        ds = [(-1, 0), (0, 1), (1, 0), (0, -1)]
+                if newCell not in visited and robot.move():
+                    goBack()
+        visited = set()
+                robot.turnRight()
+                newDir = (dir + i) % 4
+        backtrack((0, 0), 0)
