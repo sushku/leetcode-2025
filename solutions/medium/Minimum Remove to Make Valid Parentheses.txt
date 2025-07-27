@@ -5,29 +5,25 @@
 
 class Solution:
     def minRemoveToMakeValid(self, s: str) -> str:
-        openP = 0
-        for ch in s:
-            if ch == "(":
+        openP, closeP = 0, 0
+        newS = ""
+        for c in s:
+            if c == "(":
                 openP += 1
-            if ch == ")":
+            if c == ")":
                 openP -= 1
             if openP < 0:
                 openP = 0
             else:
-        res = []
-                res.append(ch)
-        for ch in res[::-1]:
-        closeP = 0
-        rev = []
-            if ch == ")":
+                newS += c
+        for c in newS[::-1]:
+            if c == ")":
                 closeP += 1
-            if ch == "(":
+            if c == "(":
                 closeP -= 1
             if closeP < 0:
                 closeP = 0
             else:
-                rev.append(ch)
-        # Approach: Two pass
-        # Time: O(n)
-        # Space: O(n)
-        return ''.join(rev[::-1])
+        res = ""
+                res += c
+        return res[::-1]
