@@ -1,0 +1,43 @@
+// Title: Vertical Order Traversal of a Binary Tree
+            // Difficulty: Hard
+            // Language: Python3
+            // Link: https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def verticalTraversal(self, root: Optional[TreeNode]) -> List[List[int]]:
+        mapVal = {}
+        dq = deque()
+        dq.append((0, 0, root))
+            row, col, node = dq.popleft()
+            if mapVal.get((row, col)):
+                mapVal[(row, col)].append(node.val)
+            else:
+                mapVal[(row, col)] = [node.val]
+            if node.left:
+                dq.append((row+1, col-1, node.left))
+            if node.right:
+                dq.append((row+1, col+1, node.right))
+            for row in range(minRow, maxRow + 1):
+        minRow, minCol, maxRow, maxCol = 0, 0, 0, 0
+        while dq:
+            minRow = min(minRow, row)
+            minCol = min(minCol, col)
+            maxRow = max(maxRow, row)
+            maxCol = max(maxCol, col)
+        for col in range(minCol, maxCol + 1):
+                if vals := mapVal.get((row, col)):
+                    if len(vals) > 1:
+        res = []
+            colVals = []
+                        vals.sort()
+                        colVals.extend(vals)
+                    else:
+                        colVals.append(vals[0])
+            res.append(colVals)
+        return res
