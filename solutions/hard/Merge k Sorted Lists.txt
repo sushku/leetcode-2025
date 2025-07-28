@@ -8,27 +8,25 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
-class HeapNode:
-    def __init__(self, node):
 class Solution:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        for node in lists:
+            while node:
+        heap = []
+                heapq.heappush(heap, HeapNode(node))
+                node = node.next
+        dummy = ListNode(0)
+        while heap:
+        prevNode = dummy
+            heapNode = heapq.heappop(heap)
+            prevNode.next = heapNode.node
+            prevNode = heapNode.node
+class HeapNode:
+    def __init__(self, listNode):
+        self.node = listNode
+
     def __lt__(self, other):
         return self.node.val < other.node.val
-        self.node = node
 
-
-        heap = []
-        for head in lists:
-            node = head
-            while node:
-                node = node.next
-        while heap:
-        dummy = ListNode()
-            hNode = heapq.heappop(heap)
-            prev.next = hNode.node
-            prev = hNode.node
-        prev = dummy
-                heapq.heappush(heap, hNode)
-                hNode = HeapNode(node)
-            hNode.node.next = None
+            heapNode.node.next = None
         return dummy.next
