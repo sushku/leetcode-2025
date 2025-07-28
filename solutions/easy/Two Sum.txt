@@ -5,11 +5,8 @@
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        # Approach: Hashmap
-        # Time: O(n)
-        # Space: O(n)
-        numMap = {}
         for i, num in enumerate(nums):
+        numMap = {}
             if target - num in numMap:
                 return [numMap[target - num], i]
             else:
