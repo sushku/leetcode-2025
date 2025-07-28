@@ -1,0 +1,33 @@
+// Title: Next Permutation
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/next-permutation/
+
+class Solution:
+    def nextPermutation(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        prev = None
+            if prev != None and n < prev:
+            prev = n
+                break
+                swapIndex1 = len(nums) - i - 1 
+        for i, n in enumerate(nums[::-1]):
+        for i in range(swapIndex1 + 1, len(nums)):
+                swapIndex2 = i
+        nums[swapIndex1], nums[swapIndex2] = nums[swapIndex2], nums[swapIndex1]
+        swapIndex1 = None
+        if swapIndex1 == None:
+            reverse(left, right)
+            if nums[swapIndex1] < nums[i]:
+        def reverse(left, right):
+            while left < right:
+                nums[left], nums[right] = nums[right], nums[left]
+                left += 1
+                right -= 1
+        left, right = swapIndex1 + 1, len(nums) - 1
+
+            left, right = 0, len(nums) - 1
+            return
+        reverse(left, right)
