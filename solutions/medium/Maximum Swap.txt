@@ -1,0 +1,28 @@
+// Title: Maximum Swap
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/maximum-swap/
+
+class Solution:
+    def maximumSwap(self, num: int) -> int:
+        numLst = list(str(num))
+        n = len(numLst)
+        maxRight = int(numLst[-1])
+        maxRightIndex = n - 1
+        maxRightIndexArr = [n-1 for _ in range(n)] 
+        for i in range(n-1, -1, -1):
+            if i == n - 1:
+                continue
+            if int(numLst[i]) > maxRight:
+                maxRight = int(numLst[i])
+                maxRightIndex = i
+            maxRightIndexArr[i] = maxRightIndex
+
+        for i in range(n):
+                numLst[i], numLst[maxIndex] = numLst
+[maxIndex], numLst[i]
+            if i != maxIndex and numLst[i] != numLst
+            maxIndex = maxRightIndexArr[i]
+                break
+[maxIndex]:
+        return int(''.join(numLst))
