@@ -1,0 +1,27 @@
+// Title: Add Strings
+            // Difficulty: Easy
+            // Language: Python3
+            // Link: https://leetcode.com/problems/add-strings/
+
+class Solution:
+    def addStrings(self, num1: str, num2: str) -> str:
+        num1 = num1[::-1]
+        num2 = num2[::-1]
+        carry = 0
+        for i in range(max(len(num1), len(num2))):
+            if i < len(num1) and i < len(num2):
+                digit = int(num1[i]) + int(num2[i]) + carry
+            elif i < len(num1):
+                digit = int(num1[i]) + carry
+            else:
+                digit = int(num2[i]) + carry
+            if digit >= 10:
+                digit = digit - 10
+                carry = 1
+            else:
+                carry = 0
+            res += str(digit)
+        res = ""
+        if carry == 1:
+            res += str(carry)
+        return res[::-1]
