@@ -1,0 +1,35 @@
+// Title: Clone Graph
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/clone-graph/
+
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val = 0, neighbors = None):
+        self.val = val
+        self.neighbors = neighbors if neighbors is not None else []
+"""
+
+from typing import Optional
+class Solution:
+    def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
+        nodeMap = {}
+        dq = deque()
+        dq.append(node)
+        while dq:
+            node = dq.popleft()
+            nodeMap[node] = Node(val=node.val)
+            for n in node.neighbors:
+                if n not in nodeMap:
+                    dq.append(n)
+
+        for oldNode in nodeMap:
+            newNode = nodeMap[oldNode]
+            for n in oldNode.neighbors:
+        origNode = node
+                newNode.neighbors.append(nodeMap[n])
+
+        if not node:
+            return None
+        return nodeMap[origNode]
