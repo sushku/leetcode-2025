@@ -4,64 +4,64 @@
             // Link: https://leetcode.com/problems/lru-cache/
 
 class Node:
+    def __init__(self, key, val):
+        self.key = key
+        self.val = val
+        self.prev = None
+        self.next = None
+
+class LRUCache:
     def __init__(self, capacity: int):
         self.capacity = capacity
+        self.size = 0
+        self.map = {}
+        self.head = None
+        self.tail = None
+
+    def move(self, node):
+        if node == self.tail:
+            return
+        if node == self.head:
+            self.head.next.prev = None
+            self.head = self.head.next
+        else:
+            node.prev.next = node.next
+            node.next.prev = node.prev
+        node.prev = self.tail
+        node.next = None
+        self.tail.next = node
+        self.tail = node
 
     def get(self, key: int) -> int:
+        if self.map.get(key):
+            node = self.map[key]
+            self.move(node)
+            return node.val
+        return -1
 
     def put(self, key: int, value: int) -> None:
         if not self.map.get(key):
+            self.size += 1
+            newNode = Node(key=key, val=value)
+            if self.tail:
+                newNode.prev = self.tail
+                self.tail.next = newNode
+                self.tail = newNode
+            else:
+                self.head = newNode
+                self.tail = newNode
+            self.map[key] = newNode
+        else:
+            node = self.map[key]
+            node.val = value
+            self.move(node)
+        if self.size > self.capacity:
+            del self.map[self.head.key]
+            self.head.next.prev = None
+            self.head = self.head.next
+            self.size -= 1
+
 # Your LRUCache object will be instantiated and called as such:
 # obj = LRUCache(capacity)
 # param_1 = obj.get(key)
-        self.map = {}
-        if self.map.get(key):
-            return node.val
-        return -1
-            node = self.map[key]
-        self.head = None
-        self.tail = None
-class LRUCache:
-    def __init__(self, key, val):
-        self.val = val
-
-        self.next = None
-        self.prev = None
-            node = self.map[key]
-        if self.size > self.capacity:
-            self.size += 1
-        self.size = 0
-
-            if self.tail:
-        else:
-            newNode = Node(key=key, val=value)
-                self.tail.next = newNode
-                newNode.prev = self.tail
-                self.tail = newNode
-            else:
-                self.tail = newNode
-                self.head = newNode
-            self.move(node)
-            self.map[key] = newNode
-            self.move(node)
-            node.val = value
-    def move(self, node):
-        if node == self.head:
-            node.prev.next = node.next
-        self.tail.next = node
-        self.tail = node
-        node.prev = self.tail
-            node.next.prev = node.prev
-        node.next = None
-
-            self.head = self.head.next
-        if node == self.tail:
-            return
-        else:
-            self.head = self.head.next
-            del self.map[self.head.key]
-        self.key = key
-            self.head.next.prev = None
-            self.head.next.prev = None
-            self.size -= 1
 # obj.put(key,value)
