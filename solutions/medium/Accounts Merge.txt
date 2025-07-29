@@ -1,0 +1,38 @@
+// Title: Accounts Merge
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/accounts-merge/
+
+class Solution:
+    def accountsMerge(self, accounts: List[List[str]]) -> List[List[str]]:
+        adj = {}
+        for account in accounts:
+            email0 = account[1]
+            for email in account[2:]:
+                if email0 in adj:
+                    adj[email0].append(email)
+                else:
+                    adj[email0] = [email]
+                if email in adj:
+                    adj[email].append(email0)
+                else:
+                    adj[email] = [email0]
+        def dfs(node, nodeList):
+
+            for neighbor in adj.get(node, []):
+            visited.add(node)
+                    dfs(neighbor, nodeList)
+
+        for account in accounts:
+            if account[1] not in visited:
+        visited = set()
+                dfs(account[1], nodeList)
+            nodeList.append(node)
+                if neighbor not in visited:
+                nodeList = []
+                row = [account[0]]
+                row.extend(nodeList)
+        res = []
+                res.append(row)
+                nodeList.sort()
+        return res
