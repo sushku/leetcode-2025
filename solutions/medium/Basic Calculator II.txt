@@ -5,36 +5,25 @@
 
 class Solution:
     def calculate(self, s: str) -> int:
-        num, prevNum, op = "", "", ""
+        result = 0
+        prev = 0
         for c in s:
             if c.isdigit():
-                num += c
+                curr += c
             else:
-        stack = []
-                if op == "*":
-                    prevNum = stack.pop()
-                    res = prevNum * int(num)
-                elif op == "/":
-                    prevNum = stack.pop()
-                    res = int(prevNum / int(num))
-                stack.append(res)
-                num = ""
-                op = c
-                elif op == "-":
-                    res = -1 * int(num)
-                else:
-                    res = int(num)
-        if op == "*":
-            prevNum = stack.pop()
-            res = prevNum * int(num)
-        elif op == "/":
-            prevNum = stack.pop()
-            res = int(prevNum / int(num))
-        elif op == "-":
-            res = -1 * int(num)
-        else:
-            res = int(num)
-        stack.append(res)
+        oper = ""
             if c == " ":
                 continue
-        return sum(stack)
+                if oper == "" or oper in "+-":
+                    result += prev
+                    prev = -1 * int(curr) if oper == "-" else int(curr)
+                else:
+        curr = ""
+                        prev *= int(curr)
+                oper = c
+                curr = ""
+        return result + prev
+                    if oper == "*":
+                    else:
+                        prev = int(prev / int(curr))
+        s = s + "+"
