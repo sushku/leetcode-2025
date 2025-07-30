@@ -1,0 +1,6 @@
+// Title: Jump Game II
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/jump-game-ii/
+
+c
