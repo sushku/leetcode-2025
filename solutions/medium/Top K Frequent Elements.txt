@@ -1,0 +1,19 @@
+// Title: Top K Frequent Elements
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/top-k-frequent-elements/
+
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        freqMap = {}
+        for num in nums:
+            freqMap[num] = 1 + freqMap.get(num, 0)
+        heap = []
+        for key, val in freqMap.items():
+            if len(heap) < k:
+                heapq.heappush(heap, [val, key])
+            else:
+                if val > heap[0][0]:
+                    heapq.heappop(heap)
+                    heapq.heappush(heap, [val, key])
+        return [i[1] for i in heap]
