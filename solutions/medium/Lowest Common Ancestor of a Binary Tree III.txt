@@ -24,10 +24,12 @@ class Solution:
         while node:
             qList.append(node)
             node = node.parent
-        for i in range(min(len(pList), len(qList))):
         pList = pList[::-1]
         qList = qList[::-1]
+        res = ""
+        for i in range(min(len(pList), len(qList))):
             if pList[i] == qList[i]:
                 res = pList[i]
-        res = ""
+            else:
+                break
         return res
