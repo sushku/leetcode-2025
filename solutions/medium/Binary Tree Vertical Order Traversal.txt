@@ -11,21 +11,28 @@
 #         self.right = right
 class Solution:
     def verticalOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        while dq:
-        res = {}
-                dq.append((index - 1, node.left))
-            if res.get(index):
-                res[index].append(node.val)
-            else:
-                res[index] = [node.val]
-        minIndex, maxIndex = 0, 0
-            maxIndex = max(maxIndex, index)
-            minIndex = min(minIndex, index)
-                dq.append((index + 1, node.right))
-        dq = deque([(0, root)])
+        # Approach: BFS
+        # Time: O(n)
+        # Space: O(n)
+        dq = deque()
+        dq.append((0, root))
         if not root:
             return []
-            index, node = dq.popleft()
+        while dq:
+            col, node = dq.popleft()
+                valMap[col] = [node.val]
+            if valMap.get(col):
+                valMap[col].append(node.val)
+            else:
+                dq.append((col-1, node.left))
             if node.left:
             if node.right:
-        return [res[k] for k in range(minIndex, maxIndex + 1)]
+                dq.append((col+1, node.right))
+        vals = []
+        valMap = {}
+        for i in range(minCol, maxCol+1):
+            vals.append(valMap[i])
+            minCol = min(col, minCol)
+            maxCol = max(col, maxCol)
+        minCol, maxCol = 0, 0
+        return vals
