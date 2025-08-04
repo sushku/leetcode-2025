@@ -1,0 +1,33 @@
+// Title: Diagonal Traverse
+            // Difficulty: Medium
+            // Language: Python3
+            // Link: https://leetcode.com/problems/diagonal-traverse/
+
+class Solution:
+    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
+        rows, cols = len(mat), len(mat[0])
+        nums, arr = [], []
+        r, c = 0, 0
+        while True:
+            arr.append(mat[r][c])
+            c += 1
+            if r < 0 or c >= cols:
+        startR, startC = 0, 0
+            r -= 1
+                    r, c = startR + 1, 0
+                else:
+                if startR < rows - 1:
+            if r == rows - 1 and c == cols - 1:
+                break
+                nums.append(arr.copy())
+                nums.append(arr.copy())
+                    r, c = rows - 1, startC + 1
+                startR, startC = r, c
+        for i in range(len(nums)):
+            if i % 2:
+                nums[i] = nums[i][::-1]
+        res = []
+        for arr in nums:
+            res.extend(arr)
+                arr = []
+        return res
