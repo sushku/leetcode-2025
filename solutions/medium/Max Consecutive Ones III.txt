@@ -5,6 +5,9 @@
 
 class Solution:
     def longestOnes(self, nums: List[int], k: int) -> int:
+        # Approach: Sliding window
+        # Time: O(N)
+        # Space: O(k)
         dq = deque()
         size, maxSize = 0, 0
         for i in range(len(nums)):
@@ -16,11 +19,11 @@ class Solution:
                     size +=1
                 else:
                     maxSize = max(size, maxSize)
+                    if dq:
                         rem = dq.popleft()
                         size = i - rem
-                    if dq:
+                        dq.append(i)
                     else:
                         size = 0
-                        dq.append(i)
         maxSize = max(size, maxSize)
         return maxSize
