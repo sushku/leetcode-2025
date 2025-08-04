@@ -5,6 +5,9 @@
 
 class Solution:
     def exclusiveTime(self, n: int, logs: List[str]) -> List[int]:
+        # Approach: Linear scan
+        # Time: O(n)
+        # Space: O(n)
         total, start = [0] * n, [0] * n
         callStack = []
         for log in logs:
@@ -17,6 +20,6 @@ class Solution:
             if log[1] == "end":
                 total[callStack[-1]] += int(log[2]) - start[callStack[-1]] + 1
                 callStack.pop()
-                    start[callStack[-1]] = int(log[2]) + 1
                 if callStack:
+                    start[callStack[-1]] = int(log[2]) + 1
         return total
