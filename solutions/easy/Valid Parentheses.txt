@@ -6,16 +6,16 @@
 class Solution:
     def isValid(self, s: str) -> bool:
         stack = []
+        pMap = {")": "(",
+                "}": "{",
+                "]": "["}
         for c in s:
             if c in "({[":
                 stack.append(c)
             if c in ")}]":
+                if not stack:
+                    return False
                 open = stack.pop()
                 if open != pMap[c]:
-                    return False
-        pMap = {")": "(",
-                "}": "{",
-                "]": "["}
-                if not stack:
                     return False
         return len(stack) == 0
