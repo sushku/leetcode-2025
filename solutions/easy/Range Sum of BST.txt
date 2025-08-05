@@ -13,11 +13,13 @@ class Solution:
     def rangeSumBST(self, root: Optional[TreeNode], low: int, high: int) -> int:
         vals = []
         def dfs(node):
+            if not node:
                 return
             dfs(node.left)
+            if low <= node.val <= high:
                 vals.append(node.val)
-            if not node:
+            if node.val > high:
+                return
             dfs(node.right)
         dfs(root)
-            if low <= node.val <= high:
         return sum(vals)
