@@ -11,23 +11,23 @@
 #         self.right = right
 class Solution:
     def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
+        if not root:
+            return []
         dq = deque([[0, root]])
+        levels = {}
+        maxLevel = 0
         while dq:
             level, node = dq.popleft()
-        levels = {}
+            maxLevel = max(maxLevel, level)
             if levels.get(level):
                 levels[level].append(node.val)
             else:
                 levels[level] = [node.val]
-                dq.append([level + 1, node.left])
             if node.left:
+                dq.append([level + 1, node.left])
             if node.right:
-            maxLevel = max(maxLevel, level)
-        maxLevel = 0
                 dq.append([level + 1, node.right])
-        for i in range(maxLevel + 1):
         res = []
+        for i in range(maxLevel + 1):
             res.append(levels[i][-1])
-        if not root:
-            return []
         return res
