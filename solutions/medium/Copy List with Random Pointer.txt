@@ -3,4 +3,36 @@
             // Language: Python3
             // Link: https://leetcode.com/problems/copy-list-with-random-pointer/
 
-"
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, x: int, next: 'Node' = None, random: 'Node' = None):
+        self.val = int(x)
+        self.next = next
+        self.random = random
+"""
+
+class Solution:
+    def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
+        nodeMap = {}
+        node = head
+        while node:
+            newNode = Node(node.val)
+            nodeMap[node] = newNode
+            node = node.next
+            prevNewNode.next = newNode
+            prevNewNode = newNode
+        newNode = newHead
+        if not head:
+            return None
+        prevNewNode = dummy
+        dummy = Node(0)
+
+        while node:
+            newNode.random = nodeMap.get(node.random)
+
+        newHead = dummy.next
+        node = head
+            newNode = newNode.next
+            node = node.next
+        return newHead        
