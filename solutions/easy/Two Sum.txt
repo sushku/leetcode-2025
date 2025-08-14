@@ -5,9 +5,9 @@
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
+        idxMap = {}
         for i, num in enumerate(nums):
-        numMap = {}
-            if target - num in numMap:
-                return [numMap[target - num], i]
+            if target - num in idxMap:
+                return [idxMap[target-num], i]
             else:
-                numMap[num] = i
+                idxMap[num] = i
